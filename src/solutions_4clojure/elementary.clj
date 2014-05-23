@@ -26,8 +26,3 @@
 
 (defn sol-156 [default-val seq-of-keys]
   (reduce (fn [acc key] (conj acc [key default-val])) {} seq-of-keys))
-
-(assert (= (sol-156 "x" [1 2 3]) {1 "x" 2 "x" 3 "x"}))
-(assert (= (sol-156 "x" [:a :b :c]) {:a "x" :b "x" :c "x"}))
-; 
-; (clojure.set/superset? #{2} #{3})
