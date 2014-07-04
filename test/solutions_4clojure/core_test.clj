@@ -22,3 +22,7 @@
   (testing "Reversing a seq"
     (is (= (my-reverse [1 2 3]) [3 2 1]))
     (is (= (= (my-reverse []) [])))))
+
+(deftest test-my-interleave
+  (testing "my-interleave problem 39"
+    (is (= (sol-39 [1 2] [3 4 5 6]) '(1 3 2 4)))))

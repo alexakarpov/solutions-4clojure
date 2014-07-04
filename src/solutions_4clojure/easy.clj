@@ -20,8 +20,6 @@ NOTE: using a name without needing a def, cool!
       rs
       (recur (conj rs (first is)) (rest is)))) ())
 
-(println "All green!")
-
 ; #25
 ; find the odd numbers
 
@@ -133,3 +131,16 @@ NOTE: using a name without needing a def, cool!
 ; #42
 ; yay, factorial
 #(reduce * (range 1 (inc %)))
+
+(defn sol-39
+  "Write a function which takes two sequences and returns the first item from each, then the second item from each, then the third, etc."
+  [a-seq b-seq]
+  (let [helper
+        (fn helper [a-seq b-seq acc]
+          (println "a-seq:" a-seq ", b-seq:" b-seq ", acc: " acc)
+          (if (or (empty? a-seq) (empty? b-seq)) acc
+              (helper (rest a-seq)
+                      (rest b-seq)
+                      (into acc (list (first a-seq)
+                                      (first b-seq))))))]
+    (helper a-seq b-seq [])))
