@@ -133,14 +133,29 @@ NOTE: using a name without needing a def, cool!
 #(reduce * (range 1 (inc %)))
 
 (defn sol-39
-  "Write a function which takes two sequences and returns the first item from each, then the second item from each, then the third, etc."
+  "Write a function which takes two sequences and returns the first item from each, then the second item from each, then the third, etc...lol, (mapcat list)"
   [a-seq b-seq]
   (let [helper
         (fn helper [a-seq b-seq acc]
-          (println "a-seq:" a-seq ", b-seq:" b-seq ", acc: " acc)
+;          (println "a-seq:" a-seq ", b-seq:" b-seq ", acc: " acc)
           (if (or (empty? a-seq) (empty? b-seq)) acc
               (helper (rest a-seq)
                       (rest b-seq)
                       (into acc (list (first a-seq)
                                       (first b-seq))))))]
     (helper a-seq b-seq [])))
+
+(defn sol-30
+  "Write a function which removes consecutive duplicates from a sequence.
+   good one: #(map first (partition-by identity %))"
+  [a-seq]
+  (let
+      [helper
+       (fn helper [acc elt]
+;         (println "acc=" acc ",seq=" a-seq)
+         (cond
+          (empty? a-seq) acc
+          (= (last acc) elt) acc
+          :else (conj acc elt)))]
+;    (println "input is:" a-seq)
+    (reduce helper [] a-seq)))
