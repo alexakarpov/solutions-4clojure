@@ -159,3 +159,9 @@ NOTE: using a name without needing a def, cool!
           :else (conj acc elt)))]
 ;    (println "input is:" a-seq)
     (reduce helper [] a-seq)))
+
+(defn sol-40
+  "Write a function which separates the items of a sequence by an arbitrary value."
+  [a-val a-seq]
+  (butlast (mapcat #(list % a-val) a-seq)))
+            
