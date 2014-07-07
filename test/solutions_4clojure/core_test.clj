@@ -34,3 +34,8 @@
 (deftest test-40
   (testing "problem 40 - interpose"
     (is (= (sol-40 1 [2 3 4 5]) [2 1 3 1 4 1 5]))))
+
+(deftest test-41
+  (testing "problem 41 - drop-nth"
+    (is (= (sol-41 [:a :b :c :d :e :f] 2) [:a :c :e]))
+    (is (= (sol-41 [1 2 3 4 5 6 7 8] 3) [1 2 4 5 7 8]))))

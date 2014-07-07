@@ -161,7 +161,13 @@ NOTE: using a name without needing a def, cool!
     (reduce helper [] a-seq)))
 
 (defn sol-40
-  "Write a function which separates the items of a sequence by an arbitrary value."
+  "Write a function which separates the itgems of a sequence by an arbitrary value."
   [a-val a-seq]
   (butlast (mapcat #(list % a-val) a-seq)))
             
+(defn sol-41
+  "Write a function which drops every Nth item from a sequence."
+  [a-seq n]
+  (mapcat #(if (= (count %) n)
+             (butlast %)
+             %) (partition-all n a-seq)))
